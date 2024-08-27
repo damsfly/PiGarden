@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Historique des arrosages{% endblock %}
+
+{% block content %}
+<h1>Historique des arrosages</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Heure</th>
+            <th>Zone</th>
+            <th>Durée (secondes)</th>
+            <th>Source</th>
+            <th>Humidité du sol avant (%)</th>
+            <th>Mode</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for session in watering_sessions %}
+        <tr>
+            <td id="time-{{ loop.index }}">{{ session.time }}</td>
+            <td>{{ session.zone }}</td>
+            <td>{{ session.duration }}</td>
+            <td>{{ session.source }}</td>
+            <td>{{ session.soil_moisture_before }}</td>
+            <td>{{ session.mode }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        {% for session in watering_sessions %}
+            (function(index) {
+                const timeCell = document.getElementById('time-{{ loop.index }}');
+                if (timeCell) {
+                    // console.log("Original UTC timestamp:", timeCell.textContent);
+                    const utcTime = moment.utc(timeCell.textContent).format('DD.MM.YYYY HH:mm:ss');
+                    // console.log("Formatted UTC time:", utcTime);
+                    timeCell.textContent = utcTime;
+                }
+            })({{ loop.index }});
+        {% endfor %}
+    });
+</script>
+{% endblock %}

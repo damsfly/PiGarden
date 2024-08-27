@@ -1,0 +1,320 @@
+/* Style de base pour le body */
+body {
+    font-family: 'DejaVu Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    position: relative; /* ajout */
+    z-index: 10;  /* Ajout d'un z-index élevé */
+}
+
+.navbar .logo {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar .nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.navbar .nav-links a:hover {
+    text-decoration: underline;
+}
+
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-icon .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .navbar .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 10px 0;
+        z-index: 100;  /* Ajout d'un z-index élevé */
+    }
+
+    .navbar .nav-links a {
+        padding: 10px 20px;
+        border-bottom: 1px solid #444;
+    }
+
+    .menu-icon {
+        display: flex;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+}
+
+/* Tailles standards pour les titres */
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.17em;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 1.75em;
+    }
+
+    h2 {
+        font-size: 1.375em;
+    }
+
+    h3 {
+        font-size: 1.125em;
+    }
+}
+
+.info-text {
+    font-size: 1em;
+    color: #333;
+    margin: 5px 0;
+}
+
+#water-level-chart {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+}
+
+#watering-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.watering-button {
+    width: 120px;
+    height: 60px;
+    background-color: #36699a;
+    border: 2px solid #204c75;
+    box-shadow: 3px 3px 5px #888888;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    margin: 5px;
+    flex: 0 1 auto;
+    color:white;
+}
+
+.watering-button:hover {
+    background-color: #03325e;
+    color:white;
+    box-shadow: 5px 5px 7px #666666;
+}
+
+.watering-button:active {
+    background-color: #ff0000;
+    transform: translateY(2px);
+}
+
+.btn-stop {
+    background-color: #ff4d4d;
+    border-color: #b30000;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.btn-stop:hover {
+    background-color: #cc0000;
+}
+
+/* Style pour le tableau d'historique des arrosages */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid #00008b;
+    margin-top: 20px;
+}
+
+thead th {
+    background-color: #add8e6;
+    color: #333;
+    padding: 10px;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #add8e6;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+tbody td {
+    padding: 10px;
+    border: 1px solid #00008b;
+    color: #333;
+}
+
+.content {
+    padding: 20px;
+}
+
+/* Ajout des styles pour améliorer la lisibilité des informations */
+.info-container {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.info-item {
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.info-item h2 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.info-item p {
+    font-size: 1em;
+    margin: 0;
+}
+
+#water-level-chart-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* Ajout de styles pour le tableau d'historique des arrosages */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid #00008b;
+    margin-top: 20px;
+}
+
+thead th {
+    background-color: #add8e6;
+    color: #333;
+    padding: 10px;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #add8e6;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+tbody td {
+    padding: 10px;
+    border: 1px solid #00008b;
+    color: #333;
+}
+
+.content {
+    padding: 20px;
+}
+
+.watering-button {
+    width: 120px;
+    height: 60px;
+    background-color: #36699a;
+    border: 2px solid #204c75;
+    box-shadow: 3px 3px 5px #888888;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    margin: 5px;
+    flex: 0 1 auto;
+    color: white;
+}
+
+.watering-button:hover {
+    background-color: #03325e;
+    color: white;
+    box-shadow: 5px 5px 7px #666666;
+}
+
+.watering-button:active {
+    background-color: #ff0000;
+    transform: translateY(2px);
+}
+
+.btn-stop {
+    background-color: #ff4d4d;
+    border-color: #b30000;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.btn-stop:hover {
+    background-color: #cc0000;
+}
+
+/* Styles pour responsive */
+@media (max-width: 768px) {
+    .info-container {
+        grid-template-columns: 1fr;
+    }
+
+    .watering-button {
+        width: 100px;
+        height: 50px;
+        font-size: 14px;
+    }
+}

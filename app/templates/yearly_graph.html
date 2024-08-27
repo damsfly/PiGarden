@@ -1,0 +1,191 @@
+{% extends "base.html" %}
+
+{% block title %}Graphiques Annuels{% endblock %}
+
+{% block head_scripts %}
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<h1>Graphiques Annuels</h1>
+<div>
+    <label><input type="checkbox" id="temperature-checkbox"> Température</label>
+    <label><input type="checkbox" id="sunlight-checkbox"> Ensoleillement</label>
+    <label><input type="checkbox" id="humidity-checkbox"> Humidité de l'air</label>
+    <label><input type="checkbox" id="wind-checkbox"> Force du vent</label>
+</div>
+<div id="combined-graph"></div>
+{% endblock %}
+
+{% block specific_scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const data = {{ data|tojson }};
+        console.log('Données reçues:', data);
+
+        function convertTimestamps(data) {
+            return data.map(entry => {
+                return { x: moment(entry[0]).tz('Europe/Paris').format(), y: entry[1] };
+            });
+        }
+
+        function convertToLocaleStringISO(timestamps) {
+            return timestamps.map(ts => {
+                return moment(ts).tz('Europe/Paris').format();
+            });
+        }
+
+        const waterLevelData = convertTimestamps(data.water_level);
+        const hygrometryTomatoData = convertTimestamps(data.hygrometry.filter(d => d[2] === 'Tomato'));
+        const hygrometryGardenData = convertTimestamps(data.hygrometry.filter(d => d[2] === 'Garden'));
+        const rainData = convertTimestamps(data.rain);
+        const wateringSessionsTomatoData = data.watering_sessions.filter(d => d[1] === 'Tomato').map(d => ({ x: convertToLocaleStringISO([d[0]])[0], y: d[2] }));
+        const wateringSessionsGardenData = data.watering_sessions.filter(d => d[1] === 'Garden').map(d => ({ x: convertToLocaleStringISO([d[0]])[0], y: d[2] }));
+        const temperatureData = convertTimestamps(data.temperature);
+        const sunlightData = convertTimestamps(data.sunlight);
+        const humidityData = convertTimestamps(data.humidity);
+        const windData = convertTimestamps(data.wind);
+
+        console.log('waterLevelData:', waterLevelData);
+        console.log('hygrometryTomatoData:', hygrometryTomatoData);
+        console.log('hygrometryGardenData:', hygrometryGardenData);
+        console.log('rainData:', rainData);
+        console.log('wateringSessionsTomatoData:', wateringSessionsTomatoData);
+        console.log('wateringSessionsGardenData:', wateringSessionsGardenData);
+        console.log('temperatureData:', temperatureData);
+        console.log('sunlightData:', sunlightData);
+        console.log('humidityData:', humidityData);
+        console.log('windData:', windData);
+
+        function plotGraph() {
+            const traces = [
+                {
+                    x: waterLevelData.map(d => d.x),
+                    y: waterLevelData.map(d => d.y),
+                    type: 'scatter',
+                    mode: 'lines',
+                    name: 'Niveau de la citerne'
+                },
+                {
+                    x: hygrometryTomatoData.map(d => d.x),
+                    y: hygrometryTomatoData.map(d => d.y),
+                    type: 'scatter',
+                    mode: 'lines',
+                    name: 'Hygrométrie des tomates'
+                },
+                {
+                    x: hygrometryGardenData.map(d => d.x),
+                    y: hygrometryGardenData.map(d => d.y),
+                    type: 'scatter',
+                    mode: 'lines',
+                    name: 'Hygrométrie du jardin'
+                },
+                {
+                    x: rainData.map(d => d.x),
+                    y: rainData.map(d => d.y),
+                    type: 'scatter',
+                    mode: 'lines',
+                    name: 'Pluie tombée'
+                },
+                {
+                    x: wateringSessionsTomatoData.map(d => d.x),
+                    y: wateringSessionsTomatoData.map(d => d.y),
+                    type: 'bar',
+                    name: 'Arrosage des tomates',
+                    yaxis: 'y2',
+                    marker: {
+                        color: 'orange',
+                        line: {
+                            color: 'orange',
+                            width: 2
+                        }
+                    }
+                },
+                {
+                    x: wateringSessionsGardenData.map(d => d.x),
+                    y: wateringSessionsGardenData.map(d => d.y),
+                    type: 'bar',
+                    name: 'Arrosage du jardin',
+                    yaxis: 'y2',
+                    marker: {
+                        color: 'green',
+                        line: {
+                            color: 'green',
+                            width: 2
+                        }
+                    }
+                }
+            ];
+
+            if (document.getElementById('temperature-checkbox').checked) {
+                traces.push({
+                    x: temperatureData.map(d => d.x),
+                    y: temperatureData.map(d => d.y),
+                    type: 'scatter',
+                    mode: 'lines',
+                    name: 'Température'
+                });
+            }
+
+            if (document.getElementById('sunlight-checkbox').checked) {
+                traces.push({
+                    x: sunlightData.map(d => d.x),
+                    y: sunlightData.map(d => d.y),
+                    type: 'scatter',
+                    mode: 'lines',
+                    name: 'Ensoleillement'
+                });
+            }
+
+            if (document.getElementById('humidity-checkbox').checked) {
+                traces.push({
+                    x: humidityData.map(d => d.x),
+                    y: humidityData.map(d => d.y),
+                    type: 'scatter',
+                    mode: 'lines',
+                    name: 'Humidité de l\'air'
+                });
+            }
+
+            if (document.getElementById('wind-checkbox').checked) {
+                traces.push({
+                    x: windData.map(d => d.x),
+                    y: windData.map(d => d.y),
+                    type: 'scatter',
+                    mode: 'lines',
+                    name: 'Force du vent'
+                });
+            }
+
+            Plotly.newPlot('combined-graph', traces, {
+                title: 'Évolution annuelle des paramètres du jardin',
+                xaxis: { title: 'Temps' },
+                yaxis: { title: 'Valeur', rangemode: 'tozero' },
+                yaxis2: {
+                    title: 'Durée des arrosages (secondes)',
+                    overlaying: 'y',
+                    side: 'right',
+                    rangemode: 'tozero'
+                },
+                barmode: 'group',
+                legend: {
+                    orientation: "h",
+                    yanchor: "top",
+                    y: -0.2,
+                    xanchor: "center",
+                    x: 0.5
+                }
+            });
+        }
+
+        document.getElementById('temperature-checkbox').addEventListener('change', plotGraph);
+        document.getElementById('sunlight-checkbox').addEventListener('change', plotGraph);
+        document.getElementById('humidity-checkbox').addEventListener('change', plotGraph);
+        document.getElementById('wind-checkbox').addEventListener('change', plotGraph);
+
+        plotGraph();
+    });
+</script>
+{% endblock %}
+
+

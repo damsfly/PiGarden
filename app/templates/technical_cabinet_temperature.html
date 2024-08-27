@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block title %}Température Armoire Technique{% endblock %}
+
+{% block head_scripts %}
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<h1>Températures armoire technique - 7 derniers jours</h1>
+<div id="technical-cabinet-graph"></div>
+{% endblock %}
+
+{% block specific_scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const data = {{ data|tojson }};
+
+        function convertTimestamps(data) {
+            return data.map(entry => {
+                return { x: moment(entry[0]).tz('Europe/Paris').format(), y: entry[1], z: entry[2] };
+            });
+        }
+
+        const technicalCabinetData = data.technical_cabinet ? convertTimestamps(data.technical_cabinet) : [];
+        const cpuTemperatureData = data.cpu_temperature ? convertTimestamps(data.cpu_temperature) : [];
+        const externalTemperatureData = data.external_temperature ? convertTimestamps(data.external_temperature) : [];
+
+        const traces = [];
+
+        if (technicalCabinetData.length) {
+            traces.push({
+                x: technicalCabinetData.map(d => d.x),
+                y: technicalCabinetData.map(d => d.y),
+                type: 'scatter',
+                mode: 'lines',
+                name: 'Température armoire technique'
+            });
+            traces.push({
+                x: technicalCabinetData.map(d => d.x),
+                y: technicalCabinetData.map(d => d.z),
+                type: 'scatter',
+                mode: 'lines',
+                name: 'Humidité armoire technique'
+            });
+        }
+
+        if (cpuTemperatureData.length) {
+            traces.push({
+                x: cpuTemperatureData.map(d => d.x),
+                y: cpuTemperatureData.map(d => d.y),
+                type: 'scatter',
+                mode: 'lines',
+                name: 'Température CPU'
+            });
+        }
+
+        if (externalTemperatureData.length) {
+            traces.push({
+                x: externalTemperatureData.map(d => d.x),
+                y: externalTemperatureData.map(d => d.y),
+                type: 'scatter',
+                mode: 'lines',
+                name: 'Température extérieure'
+            });
+        }
+
+        const layout = {
+            title: 'Température et Humidité - 7 derniers jours',
+            xaxis: { title: 'Date et heure' },
+            yaxis: { title: 'Valeur', rangemode: 'tozero' },
+            shapes: [
+                {
+                    type: 'line',
+                    x0: technicalCabinetData.length ? technicalCabinetData[0].x : (cpuTemperatureData.length ? cpuTemperatureData[0].x : (externalTemperatureData.length ? externalTemperatureData[0].x : new Date().toISOString())),
+                    y0: 70,
+                    x1: technicalCabinetData.length ? technicalCabinetData[technicalCabinetData.length - 1].x : (cpuTemperatureData.length ? cpuTemperatureData[cpuTemperatureData.length - 1].x : (externalTemperatureData.length ? externalTemperatureData[externalTemperatureData.length - 1].x : new Date().toISOString())),
+                    y1: 70,
+                    line: {
+                        color: 'red',
+                        width: 2,
+                        dash: 'dash'
+                    }
+                }
+            ],
+            legend: {
+                orientation: "h",
+                yanchor: "top",
+                y: -0.2,
+                xanchor: "center",
+                x: 0.5
+            }
+        };
+
+        Plotly.newPlot('technical-cabinet-graph', traces, layout);
+    });
+</script>
+{% endblock %}

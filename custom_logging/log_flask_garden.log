@@ -1,0 +1,710 @@
+2024-06-29 01:13:56,086 - application - ERROR - Exception on /yearly-graph [GET]
+Traceback (most recent call last):
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/PiGardenV6/application.py", line 82, in yearly_graph
+    return render_template('yearly_graph.html', data=data)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/templating.py", line 131, in _render
+    rv = template.render(context)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/PiGardenV6/app/templates/yearly_graph.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/home/PiGardenV6/app/templates/base.html", line 40, in top-level template code
+    {% block specific_scripts %}{% endblock %}
+  File "/home/PiGardenV6/app/templates/yearly_graph.html", line 23, in block 'specific_scripts'
+    const data = {{ data|tojson }};
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/filters.py", line 1688, in do_tojson
+    return htmlsafe_json_dumps(value, dumps=dumps, **kwargs)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/utils.py", line 658, in htmlsafe_json_dumps
+    dumps(obj, **kwargs)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+  File "/usr/lib/python3.9/json/__init__.py", line 234, in dumps
+    return cls(
+  File "/usr/lib/python3.9/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.9/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type WaterLevel is not JSON serializable
+2024-06-29 01:14:13,220 - application - ERROR - Exception on /yearly-graph [GET]
+Traceback (most recent call last):
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/PiGardenV6/application.py", line 82, in yearly_graph
+    return render_template('yearly_graph.html', data=data)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/templating.py", line 131, in _render
+    rv = template.render(context)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/PiGardenV6/app/templates/yearly_graph.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/home/PiGardenV6/app/templates/base.html", line 40, in top-level template code
+    {% block specific_scripts %}{% endblock %}
+  File "/home/PiGardenV6/app/templates/yearly_graph.html", line 23, in block 'specific_scripts'
+    const data = {{ data|tojson }};
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/filters.py", line 1688, in do_tojson
+    return htmlsafe_json_dumps(value, dumps=dumps, **kwargs)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/utils.py", line 658, in htmlsafe_json_dumps
+    dumps(obj, **kwargs)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+  File "/usr/lib/python3.9/json/__init__.py", line 234, in dumps
+    return cls(
+  File "/usr/lib/python3.9/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.9/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type Hygrometry is not JSON serializable
+2024-06-29 09:22:54,998 - application - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1119, in _rollback_impl
+    self.engine.dialect.do_rollback(self.connection)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 692, in do_rollback
+    dbapi_connection.rollback()
+mariadb.InterfaceError: MySQL server has gone away
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/PiGardenV6/application.py", line 29, in index
+    water_level_data = get_water_level_data()
+  File "/home/PiGardenV6/app/flask_functions.py", line 27, in get_water_level_data
+    session.close()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 2466, in close
+    self._close_impl(invalidate=False)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 2535, in _close_impl
+    transaction.close(invalidate)
+  File "<string>", line 2, in close
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 1362, in close
+    transaction.close()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2576, in close
+    self._do_close()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2714, in _do_close
+    self._close_impl()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2700, in _close_impl
+    self._connection_rollback_impl()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2692, in _connection_rollback_impl
+    self.connection._rollback_impl()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1121, in _rollback_impl
+    self._handle_dbapi_exception(e, None, None, None, None)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1119, in _rollback_impl
+    self.engine.dialect.do_rollback(self.connection)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 692, in do_rollback
+    dbapi_connection.rollback()
+sqlalchemy.exc.InterfaceError: (mariadb.InterfaceError) MySQL server has gone away
+(Background on this error at: https://sqlalche.me/e/20/rvf5)
+2024-06-29 09:48:47,938 - application - ERROR - Exception on /yearly-graph [GET]
+Traceback (most recent call last):
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/PiGardenV6/application.py", line 82, in yearly_graph
+    return render_template('yearly_graph.html', data=data)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/templating.py", line 131, in _render
+    rv = template.render(context)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/PiGardenV6/app/templates/yearly_graph.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/home/PiGardenV6/app/templates/base.html", line 40, in top-level template code
+    {% block specific_scripts %}{% endblock %}
+  File "/home/PiGardenV6/app/templates/yearly_graph.html", line 23, in block 'specific_scripts'
+    const data = {{ data|tojson }};
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/filters.py", line 1688, in do_tojson
+    return htmlsafe_json_dumps(value, dumps=dumps, **kwargs)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/utils.py", line 658, in htmlsafe_json_dumps
+    dumps(obj, **kwargs)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+  File "/usr/lib/python3.9/json/__init__.py", line 234, in dumps
+    return cls(
+  File "/usr/lib/python3.9/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.9/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type HourlyHumidity is not JSON serializable
+2024-06-29 09:48:51,229 - application - ERROR - Exception on /technical-cabinet-temperature [GET]
+Traceback (most recent call last):
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/PiGardenV6/application.py", line 87, in technical_cabinet_temperature
+    return render_template('technical_cabinet_temperature.html', data=data)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/templating.py", line 131, in _render
+    rv = template.render(context)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/PiGardenV6/app/templates/technical_cabinet_temperature.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/home/PiGardenV6/app/templates/base.html", line 40, in top-level template code
+    {% block specific_scripts %}{% endblock %}
+  File "/home/PiGardenV6/app/templates/technical_cabinet_temperature.html", line 17, in block 'specific_scripts'
+    const data = {{ data|tojson }};
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/filters.py", line 1688, in do_tojson
+    return htmlsafe_json_dumps(value, dumps=dumps, **kwargs)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/utils.py", line 658, in htmlsafe_json_dumps
+    dumps(obj, **kwargs)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+  File "/usr/lib/python3.9/json/__init__.py", line 234, in dumps
+    return cls(
+  File "/usr/lib/python3.9/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.9/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type CpuTemperature is not JSON serializable
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      2024-06-29 15:08:53,331 - application - ERROR - Exception on /technical-cabinet-temperature [GET]
+Traceback (most recent call last):
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/PiGardenV6/application.py", line 87, in technical_cabinet_temperature
+    return render_template('technical_cabinet_temperature.html', data=data)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/templating.py", line 131, in _render
+    rv = template.render(context)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/PiGardenV6/app/templates/technical_cabinet_temperature.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/home/PiGardenV6/app/templates/base.html", line 40, in top-level template code
+    {% block specific_scripts %}{% endblock %}
+  File "/home/PiGardenV6/app/templates/technical_cabinet_temperature.html", line 17, in block 'specific_scripts'
+    const data = {{ data|tojson }};
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/filters.py", line 1688, in do_tojson
+    return htmlsafe_json_dumps(value, dumps=dumps, **kwargs)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/utils.py", line 658, in htmlsafe_json_dumps
+    dumps(obj, **kwargs)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+  File "/usr/lib/python3.9/json/__init__.py", line 234, in dumps
+    return cls(
+  File "/usr/lib/python3.9/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.9/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type CpuTemperature is not JSON serializable
+2024-06-29 15:09:53,585 - application - ERROR - Exception on /technical-cabinet-temperature [GET]
+Traceback (most recent call last):
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/PiGardenV6/application.py", line 87, in technical_cabinet_temperature
+    return render_template('technical_cabinet_temperature.html', data=data)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/templating.py", line 131, in _render
+    rv = template.render(context)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/PiGardenV6/app/templates/technical_cabinet_temperature.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/home/PiGardenV6/app/templates/base.html", line 40, in top-level template code
+    {% block specific_scripts %}{% endblock %}
+  File "/home/PiGardenV6/app/templates/technical_cabinet_temperature.html", line 17, in block 'specific_scripts'
+    const data = {{ data|tojson }};
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/filters.py", line 1688, in do_tojson
+    return htmlsafe_json_dumps(value, dumps=dumps, **kwargs)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/utils.py", line 658, in htmlsafe_json_dumps
+    dumps(obj, **kwargs)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+  File "/usr/lib/python3.9/json/__init__.py", line 234, in dumps
+    return cls(
+  File "/usr/lib/python3.9/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.9/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type CpuTemperature is not JSON serializable
+2024-06-29 15:32:17,383 - application - ERROR - Exception on /technical-cabinet-temperature [GET]
+Traceback (most recent call last):
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/PiGardenV6/application.py", line 87, in technical_cabinet_temperature
+    return render_template('technical_cabinet_temperature.html', data=data)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/templating.py", line 131, in _render
+    rv = template.render(context)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/PiGardenV6/app/templates/technical_cabinet_temperature.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/home/PiGardenV6/app/templates/base.html", line 40, in top-level template code
+    {% block specific_scripts %}{% endblock %}
+  File "/home/PiGardenV6/app/templates/technical_cabinet_temperature.html", line 17, in block 'specific_scripts'
+    const data = {{ data|tojson }};
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/filters.py", line 1688, in do_tojson
+    return htmlsafe_json_dumps(value, dumps=dumps, **kwargs)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/utils.py", line 658, in htmlsafe_json_dumps
+    dumps(obj, **kwargs)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+  File "/usr/lib/python3.9/json/__init__.py", line 234, in dumps
+    return cls(
+  File "/usr/lib/python3.9/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.9/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type CpuTemperature is not JSON serializable
+2024-06-29 15:32:39,037 - application - ERROR - Exception on /yearly-graph [GET]
+Traceback (most recent call last):
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/PiGardenV6/application.py", line 82, in yearly_graph
+    return render_template('yearly_graph.html', data=data)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/templating.py", line 131, in _render
+    rv = template.render(context)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/PiGardenV6/app/templates/yearly_graph.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/home/PiGardenV6/app/templates/base.html", line 40, in top-level template code
+    {% block specific_scripts %}{% endblock %}
+  File "/home/PiGardenV6/app/templates/yearly_graph.html", line 23, in block 'specific_scripts'
+    const data = {{ data|tojson }};
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/filters.py", line 1688, in do_tojson
+    return htmlsafe_json_dumps(value, dumps=dumps, **kwargs)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/utils.py", line 658, in htmlsafe_json_dumps
+    dumps(obj, **kwargs)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+  File "/usr/lib/python3.9/json/__init__.py", line 234, in dumps
+    return cls(
+  File "/usr/lib/python3.9/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.9/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type HourlyHumidity is not JSON serializable
+2024-06-29 17:06:08,360 - application - ERROR - Exception on /technical-cabinet-temperature [GET]
+Traceback (most recent call last):
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/PiGardenV6/application.py", line 87, in technical_cabinet_temperature
+    return render_template('technical_cabinet_temperature.html', data=data)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/templating.py", line 131, in _render
+    rv = template.render(context)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/PiGardenV6/app/templates/technical_cabinet_temperature.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/home/PiGardenV6/app/templates/base.html", line 40, in top-level template code
+    {% block specific_scripts %}{% endblock %}
+  File "/home/PiGardenV6/app/templates/technical_cabinet_temperature.html", line 17, in block 'specific_scripts'
+    const data = {{ data|tojson }};
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/filters.py", line 1688, in do_tojson
+    return htmlsafe_json_dumps(value, dumps=dumps, **kwargs)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/utils.py", line 658, in htmlsafe_json_dumps
+    dumps(obj, **kwargs)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+  File "/usr/lib/python3.9/json/__init__.py", line 234, in dumps
+    return cls(
+  File "/usr/lib/python3.9/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.9/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type CpuTemperature is not JSON serializable
+2024-06-29 17:06:30,231 - application - ERROR - Exception on /yearly-graph [GET]
+Traceback (most recent call last):
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/PiGardenV6/application.py", line 82, in yearly_graph
+    return render_template('yearly_graph.html', data=data)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/templating.py", line 131, in _render
+    rv = template.render(context)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/PiGardenV6/app/templates/yearly_graph.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/home/PiGardenV6/app/templates/base.html", line 40, in top-level template code
+    {% block specific_scripts %}{% endblock %}
+  File "/home/PiGardenV6/app/templates/yearly_graph.html", line 23, in block 'specific_scripts'
+    const data = {{ data|tojson }};
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/filters.py", line 1688, in do_tojson
+    return htmlsafe_json_dumps(value, dumps=dumps, **kwargs)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/jinja2/utils.py", line 658, in htmlsafe_json_dumps
+    dumps(obj, **kwargs)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+  File "/usr/lib/python3.9/json/__init__.py", line 234, in dumps
+    return cls(
+  File "/usr/lib/python3.9/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.9/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type HourlyHumidity is not JSON serializable
+2024-06-30 17:50:04,675 - application - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1119, in _rollback_impl
+    self.engine.dialect.do_rollback(self.connection)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 692, in do_rollback
+    dbapi_connection.rollback()
+mariadb.InterfaceError: MySQL server has gone away
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/PiGardenV6/application.py", line 37, in index
+    water_level_data = get_water_level_data()
+  File "/home/PiGardenV6/app/flask_functions.py", line 29, in get_water_level_data
+    session.close()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 2466, in close
+    self._close_impl(invalidate=False)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 2535, in _close_impl
+    transaction.close(invalidate)
+  File "<string>", line 2, in close
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 1362, in close
+    transaction.close()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2576, in close
+    self._do_close()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2714, in _do_close
+    self._close_impl()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2700, in _close_impl
+    self._connection_rollback_impl()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2692, in _connection_rollback_impl
+    self.connection._rollback_impl()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1121, in _rollback_impl
+    self._handle_dbapi_exception(e, None, None, None, None)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1119, in _rollback_impl
+    self.engine.dialect.do_rollback(self.connection)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 692, in do_rollback
+    dbapi_connection.rollback()
+sqlalchemy.exc.InterfaceError: (mariadb.InterfaceError) MySQL server has gone away
+(Background on this error at: https://sqlalche.me/e/20/rvf5)
+2024-06-30 17:50:12,461 - application - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1119, in _rollback_impl
+    self.engine.dialect.do_rollback(self.connection)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 692, in do_rollback
+    dbapi_connection.rollback()
+mariadb.InterfaceError: MySQL server has gone away
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/PiGardenV6/application.py", line 37, in index
+    water_level_data = get_water_level_data()
+  File "/home/PiGardenV6/app/flask_functions.py", line 29, in get_water_level_data
+    session.close()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 2466, in close
+    self._close_impl(invalidate=False)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 2535, in _close_impl
+    transaction.close(invalidate)
+  File "<string>", line 2, in close
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 1362, in close
+    transaction.close()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2576, in close
+    self._do_close()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2714, in _do_close
+    self._close_impl()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2700, in _close_impl
+    self._connection_rollback_impl()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2692, in _connection_rollback_impl
+    self.connection._rollback_impl()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1121, in _rollback_impl
+    self._handle_dbapi_exception(e, None, None, None, None)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1119, in _rollback_impl
+    self.engine.dialect.do_rollback(self.connection)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 692, in do_rollback
+    dbapi_connection.rollback()
+sqlalchemy.exc.InterfaceError: (mariadb.InterfaceError) MySQL server has gone away
+(Background on this error at: https://sqlalche.me/e/20/rvf5)
+2024-07-02 00:15:51,990 - application - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1119, in _rollback_impl
+    self.engine.dialect.do_rollback(self.connection)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 692, in do_rollback
+    dbapi_connection.rollback()
+mariadb.InterfaceError: MySQL server has gone away
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/PiGardenV6/application.py", line 37, in index
+    water_level_data = get_water_level_data()
+  File "/home/PiGardenV6/app/flask_functions.py", line 29, in get_water_level_data
+    session.close()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 2466, in close
+    self._close_impl(invalidate=False)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 2535, in _close_impl
+    transaction.close(invalidate)
+  File "<string>", line 2, in close
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 1362, in close
+    transaction.close()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2576, in close
+    self._do_close()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2714, in _do_close
+    self._close_impl()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2700, in _close_impl
+    self._connection_rollback_impl()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2692, in _connection_rollback_impl
+    self.connection._rollback_impl()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1121, in _rollback_impl
+    self._handle_dbapi_exception(e, None, None, None, None)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1119, in _rollback_impl
+    self.engine.dialect.do_rollback(self.connection)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 692, in do_rollback
+    dbapi_connection.rollback()
+sqlalchemy.exc.InterfaceError: (mariadb.InterfaceError) MySQL server has gone away
+(Background on this error at: https://sqlalche.me/e/20/rvf5)
+2024-07-03 19:00:55,567 - application - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1119, in _rollback_impl
+    self.engine.dialect.do_rollback(self.connection)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 692, in do_rollback
+    dbapi_connection.rollback()
+mariadb.InterfaceError: MySQL server has gone away
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/PiGardenV6/application.py", line 37, in index
+    water_level_data = get_water_level_data()
+  File "/home/PiGardenV6/app/flask_functions.py", line 29, in get_water_level_data
+    session.close()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 2466, in close
+    self._close_impl(invalidate=False)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 2535, in _close_impl
+    transaction.close(invalidate)
+  File "<string>", line 2, in close
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 1362, in close
+    transaction.close()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2576, in close
+    self._do_close()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2714, in _do_close
+    self._close_impl()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2700, in _close_impl
+    self._connection_rollback_impl()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2692, in _connection_rollback_impl
+    self.connection._rollback_impl()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1121, in _rollback_impl
+    self._handle_dbapi_exception(e, None, None, None, None)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1119, in _rollback_impl
+    self.engine.dialect.do_rollback(self.connection)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 692, in do_rollback
+    dbapi_connection.rollback()
+sqlalchemy.exc.InterfaceError: (mariadb.InterfaceError) MySQL server has gone away
+(Background on this error at: https://sqlalche.me/e/20/rvf5)
+2024-07-14 15:56:59,457 - application - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1119, in _rollback_impl
+    self.engine.dialect.do_rollback(self.connection)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 692, in do_rollback
+    dbapi_connection.rollback()
+mariadb.InterfaceError: MySQL server has gone away
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/PiGardenV6/application.py", line 37, in index
+    water_level_data = get_water_level_data()
+  File "/home/PiGardenV6/app/flask_functions.py", line 29, in get_water_level_data
+    session.close()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 2466, in close
+    self._close_impl(invalidate=False)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 2535, in _close_impl
+    transaction.close(invalidate)
+  File "<string>", line 2, in close
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 1362, in close
+    transaction.close()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2576, in close
+    self._do_close()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2714, in _do_close
+    self._close_impl()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2700, in _close_impl
+    self._connection_rollback_impl()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2692, in _connection_rollback_impl
+    self.connection._rollback_impl()
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1121, in _rollback_impl
+    self._handle_dbapi_exception(e, None, None, None, None)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1119, in _rollback_impl
+    self.engine.dialect.do_rollback(self.connection)
+  File "/home/PiGarden/.local/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 692, in do_rollback
+    dbapi_connection.rollback()
+sqlalchemy.exc.InterfaceError: (mariadb.InterfaceError) MySQL server has gone away
+(Background on this error at: https://sqlalche.me/e/20/rvf5)

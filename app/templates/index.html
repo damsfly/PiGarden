@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}Mon Jardin Intelligent{% endblock %}
+
+{% block head_scripts %}
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<h1>En un coup d'oeil</h1>
+<div class="info-container">
+    <div class="info-item">
+        <h2>Dernière mesure du niveau d'eau :</h2>
+        <p><span id="water-level">{{ water_level }} cm</span></p>
+    </div>
+    <div class="info-item">
+        <h2>Pluie tombée dans les dernières 12 heures :</h2>
+        <p><span id="rain-data">{{ last_rain_data }} mm</span></p>
+    </div>
+    <div class="info-item">
+        <h2>Humidité des tomates :</h2>
+        <p><span id="tomato-moisture">{{ tomato_moisture.level }}%</span></p>
+    </div>
+    <div class="info-item">
+        <h2>Humidité du jardin :</h2>
+        <p><span id="garden-moisture">{{ garden_moisture.level }}%</span></p>
+    </div>
+
+    <div class="info-item">
+        <h2>État du système :</h2>
+        <p><span id="system-state">{{ system_state.state }} (Zone: {{ system_state.zone }}, Source: {{ system_state.source }}, Mode: {{ system_state.mode }})</span></p>
+    </div>
+</div>
+
+<div id="water-level-chart-container">
+    <h2>Graphique du niveau d'eau</h2>
+    <div id="water-level-chart"></div>
+</div>
+
+<h2>Contrôles d'arrosage</h2>
+<div id="watering-controls">
+    <button id="btn-water-garden" class="watering-button">Arroser le jardin</button>
+    <button id="btn-water-tomatoes" class="watering-button">Arroser les tomates</button>
+    <button id="btn-activate-faucet" class="watering-button">Activer le robinet auxiliaire</button>
+    <button id="btn-stop-watering" class="watering-button btn-stop">Arrêter tous les arrosages</button>
+</div>
+{% endblock %}
+
+{% block specific_scripts %}
+<script>
+    // Appeler la fonction pour générer le graphique au chargement de la page (par défaut pour les dernières 24 heures)
+    getWaterLevelChartData('24h');
+</script>
+{% endblock %}

@@ -1,0 +1,57 @@
+Vérification de l'intégrité de la base de données MySQL...
+garden_watering.cpu_temperature                    OK
+garden_watering.hourly_humidity                    OK
+garden_watering.hourly_rain                        OK
+garden_watering.hourly_sunlight                    OK
+garden_watering.hourly_temperature                 OK
+garden_watering.hourly_wind                        OK
+garden_watering.hygrometry                         OK
+garden_watering.logs                               OK
+garden_watering.precipitation                      OK
+garden_watering.rain_forecast                      OK
+garden_watering.system_state                       OK
+garden_watering.technical_cabinet_conditions       OK
+garden_watering.water_level                        OK
+garden_watering.watering_sessions                  OK
+garden_watering.cpu_temperature
+note     : Table does not support optimize, doing recreate + analyze instead
+status   : OK
+garden_watering.hourly_humidity
+note     : Table does not support optimize, doing recreate + analyze instead
+status   : OK
+garden_watering.hourly_rain
+note     : Table does not support optimize, doing recreate + analyze instead
+status   : OK
+garden_watering.hourly_sunlight
+note     : Table does not support optimize, doing recreate + analyze instead
+status   : OK
+garden_watering.hourly_temperature
+note     : Table does not support optimize, doing recreate + analyze instead
+status   : OK
+garden_watering.hourly_wind
+note     : Table does not support optimize, doing recreate + analyze instead
+status   : OK
+garden_watering.hygrometry
+note     : Table does not support optimize, doing recreate + analyze instead
+status   : OK
+garden_watering.logs
+note     : Table does not support optimize, doing recreate + analyze instead
+status   : OK
+garden_watering.precipitation
+note     : Table does not support optimize, doing recreate + analyze instead
+status   : OK
+garden_watering.rain_forecast
+note     : Table does not support optimize, doing recreate + analyze instead
+status   : OK
+garden_watering.system_state
+note     : Table does not support optimize, doing recreate + analyze instead
+status   : OK
+garden_watering.technical_cabinet_conditions
+note     : Table does not support optimize, doing recreate + analyze instead
+status   : OK
+garden_watering.water_level
+note     : Table does not support optimize, doing recreate + analyze instead
+status   : OK
+garden_watering.watering_sessions
+note     : Table does not support optimize, doing recreate + analyze instead
+status   : OK
